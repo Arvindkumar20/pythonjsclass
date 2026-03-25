@@ -12,6 +12,5 @@ export const createTag = (name, style) => {
   tag.style.display = style?.display;
   tag.style.alighItems = style?.alighItems;
   tag.style.justifyContent = style?.justifyContent;
-
   return tag;
 };

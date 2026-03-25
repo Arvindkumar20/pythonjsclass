@@ -150,3 +150,5 @@ pa.map((user) => {
   const { name, email, phone, image, dob } = user;
   createUser(name, dob, phone, email, image);
 });
+
+

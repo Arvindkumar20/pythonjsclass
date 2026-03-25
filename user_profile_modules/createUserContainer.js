@@ -10,7 +10,7 @@ export const createUser = (
   const user = createTag("div", {
     border: "2px solid red",
     padding: "20px 20px",
-    borderRadius: "20px",
+    borderRadius: "5px",
     width:"250px"
   });
   

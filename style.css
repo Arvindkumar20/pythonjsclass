@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  font-family: "Courier New", Courier, monospace;
+}
+.form-container > form {
+  width: 300px;
+  padding: 20px;
+  background: #fbf9f9;
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-container > form > .input-container > input {
+  padding: 8px 3px;
+  font-size: 15px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-family: "Courier New", Courier, monospace;
+}
+.form-container > .user-details > .user-details-form-heading {
+  text-align: center;
+  font-size: 25px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.input-container > label,
+.user-details-btn {
+  font-size: 18px;
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+}
+.user-details-btn {
+  padding: 8px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(13, 13, 13);
+  color: white;
+}
