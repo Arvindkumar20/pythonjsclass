@@ -1,7 +1,7 @@
 const usersContainer = document.getElementById("container");
 usersContainer.style.display = "flex";
 usersContainer.style.flexDirection = "row";
-usersContainer.style.flexWrap="wrap"
+usersContainer.style.flexWrap = "wrap";
 usersContainer.style.gap = "20px";
 usersContainer.style.marginTop = "20px";
 usersContainer.style.borderRadius = "20px";
@@ -20,9 +20,17 @@ const createTag = (name, style) => {
   tag.style.display = style?.display;
   tag.style.alighItems = style?.alighItems;
   tag.style.justifyContent = style?.justifyContent;
-
   return tag;
 };
+let localUserData = JSON.parse(localStorage.getItem("userData"));
+
+function deleteUser(email) {
+  const newUsers = localUserData.filter((user) => user.email !== email);
+
+  localStorage.setItem("userData", JSON.stringify(newUsers));
+  window.location = "/";
+}
+
 // user card function
 const createUser = (
   name,
@@ -35,7 +43,7 @@ const createUser = (
     border: "2px solid red",
     padding: "20px 20px",
     borderRadius: "20px",
-    width:"250px"
+    width: "250px",
   });
   // user image container
   const imageParent = createTag("div", {
@@ -73,82 +81,22 @@ const createUser = (
   const userEmail = createTag("h3");
   userEmail.innerText = "Email : " + email;
   user.appendChild(userEmail);
+
+  // delete user
+  const deleteBtn = createTag("div", { borderRadius: "5px" });
+  deleteBtn.innerHTML = `<button onClick="deleteUser('${email}')" style="padding:5px 10px;border:1px solid gray;borderRadius:10px;background:red;color:white;cursor:pointer">Delete</button>`;
+  user.appendChild(deleteBtn);
   usersContainer.appendChild(user);
 };
 
 // createUser("arvind")
 
 // const pa = ["arvind kjerfhw frr fjrg rtg ", "abhay", "arohi"];
-const pa = [
-  {
-    name: "Arvind",
-    dob: "00/00/0000",
-    email: "arvind@gmil.com",
-    phone: "837458878572433",
-    image:
-      "https://img.freepik.com/free-photo/courage-man-jump-through-gap-hill-business-concept-idea_1323-262.jpg?semt=ais_hybrid&w=740&q=80",
-  },
-  {
-    name: "Abhay",
-    dob: "01/01/1001",
-    email: "abhay@gmil.com",
-    phone: "37486457847475",
-    image:
-      "https://images.ctfassets.net/hrltx12pl8hq/5596z2BCR9KmT1KeRBrOQa/4070fd4e2f1a13f71c2c46afeb18e41c/shutterstock_451077043-hero1.jpg?fit=fill&w=600&h=400",
-  },
-  {
-    name: "Arohi",
-    dob: "02/02/2002",
-    email: "arohi@gmil.com",
-    phone: "643856439764",
-    image:
-      "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg",
-  },
-  {
-    name: "Arohi",
-    dob: "02/02/2002",
-    email: "arohi@gmil.com",
-    phone: "643856439764",
-    image:
-      "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg",
-  },
-  {
-    name: "Arohi",
-    dob: "02/02/2002",
-    email: "arohi@gmil.com",
-    phone: "643856439764",
-    image:
-      "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg",
-  },
-  {
-    name: "Arohi",
-    dob: "02/02/2002",
-    email: "arohi@gmil.com",
-    phone: "643856439764",
-    image:
-      "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg",
-  },
-  {
-    name: "Arohi",
-    dob: "02/02/2002",
-    email: "arohi@gmil.com",
-    phone: "643856439764",
-    image:
-      "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg",
-  },
-  {
-    name: "Arohi",
-    dob: "02/02/2002",
-    email: "arohi@gmil.com",
-    phone: "643856439764",
-    image:
-      "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg",
-  },
-];
+function loadUsers(users) {
+  users.map((user) => {
+    const { fullName, email, phone, image, dob } = user;
+    createUser(fullName, dob, phone, email, image);
+  });
+}
 
-pa.map((user) => {
-  const { name, email, phone, image, dob } = user;
-  createUser(name, dob, phone, email, image);
-});
-
-
+loadUsers(localUserData);
