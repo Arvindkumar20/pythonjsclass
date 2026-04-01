@@ -13,18 +13,18 @@
 // conditional 
 // localStorage 
 // operators
-
-// pending concepts 
-
 // error handling 
 // hoasting 
 // clouser
-// event Loop
-// async await
+// pending concepts 
+
+
+// event Loop 
+// async await 
 // Promise 
 // call back
 // api calling with fetch
+// api calling with axios 
 
-// advance
 
 
