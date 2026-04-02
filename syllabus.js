@@ -16,9 +16,6 @@
 // error handling 
 // hoasting 
 // clouser
-// pending concepts 
-
-
 // event Loop 
 // async await 
 // Promise 
